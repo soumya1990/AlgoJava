@@ -5,24 +5,25 @@ package com.algo.trie;
  */
 
 public class Dictionary {
-    class Node {
-        boolean isEndofWord = false;
-        Node[] nodes = new Node[26];
-    }
-    Node root = new Node();
+
+    TrieNode root = new TrieNode();
+
     public void insertWord(String word) {
         char[] letters = word.toCharArray();
-        Node currNode =  root;
+        TrieNode currNode =  root;
         for (int i=0;i<letters.length;i++) {
-            Node nextNode = currNode.nodes[i];
+            TrieNode nextNode = currNode.getAlphabets()[i];
             if(nextNode == null) {
-                nextNode = new Node();
-                currNode.nodes[i] = nextNode;
+                nextNode = new TrieNode();
+                currNode.getAlphabets()[i] = nextNode;
             }
             currNode = nextNode;
         }
-        currNode.isEndofWord = true;
+        currNode.setEndOfWord(true);
     }
 
+    public boolean findWord(){
+     return true;
+    }
 
 }
